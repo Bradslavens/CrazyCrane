@@ -2,43 +2,42 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    public float moveSpeed = 5f; // Movement speed of the player
-    public float jumpForce = 10f; // Jump force of the player
-    private Rigidbody rb; // Rigidbody of the player
-    private bool isGrounded; // Boolean to check if the player is grounded
-    public Transform groundCheck; // Transform of the ground check object
-    public float groundCheckRadius = 0.1f; // Radius of the ground check sphere
-    public LayerMask whatIsGround; // Layer mask for the ground
+    public float moveSpeed = 5f;
+    public float jumpSpeed = 5f;
+    public float gravity = 9.81f;
+
+    private CharacterController controller;
+    private Vector3 moveDirection = Vector3.zero;
 
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-    }
-
-    void FixedUpdate()
-    {
-        // Check if the player is grounded
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundCheckRadius, whatIsGround);
-
-        // Move the player forward, backward, left or right
-        float moveHorizontal = Input.GetAxisRaw("Horizontal");
-        float moveVertical = Input.GetAxisRaw("Vertical");
-        Vector3 movement = new Vector3(moveHorizontal, 0f, moveVertical);
-        rb.velocity = movement.normalized * moveSpeed;
-
-        // Rotate the player towards the direction of movement
-        if (movement != Vector3.zero)
-        {
-            transform.rotation = Quaternion.LookRotation(movement);
-        }
+        controller = GetComponent<CharacterController>();
     }
 
     void Update()
     {
-        // Make the player jump if they are grounded and the jump button is pressed
-        if (isGrounded && Input.GetKeyDown(KeyCode.Space))
+        transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
+
+        if (controller.isGrounded)
         {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            float x = Input.GetAxis("Horizontal");
+            float z = Input.GetAxis("Vertical");
+            moveDirection = new Vector3(x, 0, z);
+            moveDirection *= moveSpeed;
+
+            if (Input.GetButtonDown("Jump"))
+            {
+                moveDirection.y = jumpSpeed;
+            }
+        }
+
+        moveDirection.y -= gravity * Time.deltaTime;
+        controller.Move(moveDirection * Time.deltaTime);
+
+        // Look in the direction of movement
+        if (moveDirection.magnitude > 0.1f)
+        {
+            transform.LookAt(transform.position + moveDirection);
         }
     }
 }
