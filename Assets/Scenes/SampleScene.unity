@@ -499,8 +499,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 871117514}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.736861, y: 1.61, z: 4.5007143}
-  m_LocalScale: {x: 1, y: 2.2678, z: 11.23}
+  m_LocalPosition: {x: 3.97, y: 3.53, z: 4.5007143}
+  m_LocalScale: {x: 1, y: 5.324568, z: 11.23}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -837,6 +837,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sphereCastRadius: 0.5
   maxDistance: 1
+  climbSpeed: 2
+  climbExtraDistance: 2
   detectionLayers:
     serializedVersion: 2
     m_Bits: 64

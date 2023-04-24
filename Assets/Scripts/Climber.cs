@@ -6,10 +6,12 @@ public class Climber : MonoBehaviour
     public float sphereCastRadius = 0.5f;
     public float maxDistance = 3.0f;
     public float climbSpeed = 2.0f;
+    public float climbExtraDistance = 1.0f;
     public LayerMask detectionLayers;
 
     private RaycastHit hitInfo;
     private bool climbing = false;
+    private float climbedExtraDistance = 0.0f;
     private NavMeshAgent navMeshAgent;
     private Rigidbody rb;
 
@@ -39,6 +41,7 @@ public class Climber : MonoBehaviour
         {
             Debug.Log("Object detected in front: " + hitInfo.collider.name);
             climbing = true;
+            climbedExtraDistance = 0.0f;
             if (navMeshAgent != null)
             {
                 navMeshAgent.enabled = false;
@@ -51,19 +54,28 @@ public class Climber : MonoBehaviour
 
         if (climbing)
         {
-            transform.position += Vector3.up * climbSpeed * Time.deltaTime;
+            float climbDelta = climbSpeed * Time.deltaTime;
+            transform.position += Vector3.up * climbDelta;
+            climbedExtraDistance += climbDelta;
 
             if (!Physics.SphereCast(origin, sphereCastRadius, direction, out hitInfo, distance, detectionLayers))
             {
-                climbing = false;
-                if (navMeshAgent != null)
+                if (climbedExtraDistance >= climbExtraDistance)
                 {
-                    navMeshAgent.enabled = true;
+                    climbing = false;
+                    if (navMeshAgent != null)
+                    {
+                        navMeshAgent.enabled = true;
+                    }
+                    if (rb != null)
+                    {
+                        rb.isKinematic = false;
+                    }
                 }
-                if (rb != null)
-                {
-                    rb.isKinematic = false;
-                }
+            }
+            else
+            {
+                climbedExtraDistance = 0.0f;
             }
         }
     }
