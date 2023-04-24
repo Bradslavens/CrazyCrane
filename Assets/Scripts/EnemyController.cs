@@ -30,7 +30,7 @@ public class EnemyController : MonoBehaviour
 
     void Update()
     {
-        if (target != null && navMeshAgent != null)
+        if (target != null && navMeshAgent != null && navMeshAgent.enabled)
         {
             float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
 
