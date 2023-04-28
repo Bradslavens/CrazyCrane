@@ -60,10 +60,7 @@ public class NPCMovement : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(npc.position, targetDirection, out hit, obstacleThreshold, obstacleLayerMask))
         {
-            Vector3 obstacleNormal = hit.normal;
-            Vector3 climbDirection = Vector3.Cross(Vector3.up, obstacleNormal).normalized;
-
-            npc.position += climbDirection * climbSpeed * Time.deltaTime;
+            npc.position += Vector3.up * climbSpeed * Time.deltaTime;
 
             if (npc.position.y > hit.point.y + 1.0f)
             {
@@ -81,13 +78,19 @@ public class NPCMovement : MonoBehaviour
         }
     }
 
+
+
     void FallFromObstacle()
     {
-        npc.position += Vector3.down * climbSpeed * Time.deltaTime;
+        Vector3 fallTarget = new Vector3(npc.position.x, 0.0f, npc.position.z); // Target position at NPC's current position
+        targetDirection = (fallTarget - npc.position).normalized;
+
+        npc.position += targetDirection * moveSpeed * Time.deltaTime;
 
         if (npc.position.y <= 0.0f)
         {
             isFalling = false;
         }
     }
+
 }
