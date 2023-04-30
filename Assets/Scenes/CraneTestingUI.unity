@@ -493,15 +493,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 642538505}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 025028395cf43d446a1c48b28340c1b4, type: 3}
+  m_Script: {fileID: 11500000, guid: ea0771aaf53132240bfd7043b90b6797, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cranehead: {fileID: 1829676898}
-  crosshairs: {fileID: 591472272}
-  moveSpeed: 20
+  craneHead: {fileID: 1829676897}
   obstacleLayer:
     serializedVersion: 2
     m_Bits: 64
+  fireKey: 32
+  craneHeadSpeed: 34.18
 --- !u!1 &926347090
 GameObject:
   m_ObjectHideFlags: 0
