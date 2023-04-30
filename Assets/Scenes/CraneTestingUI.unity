@@ -212,8 +212,9 @@ GameObject:
   - component: {fileID: 212276438}
   - component: {fileID: 212276437}
   - component: {fileID: 212276436}
+  - component: {fileID: 212276439}
   m_Layer: 0
-  m_Name: Main Camera
+  m_Name: CraneCamera
   m_TagString: MainCamera
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -285,6 +286,21 @@ Transform:
   m_Father: {fileID: 642538506}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &212276439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 212276435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: acf2b5a2d6bbfdc41b36aed9e99a0146, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
+  minAngle: -45
+  maxAngle: 45
 --- !u!1 &591472270
 GameObject:
   m_ObjectHideFlags: 0
@@ -297,7 +313,7 @@ GameObject:
   - component: {fileID: 591472273}
   - component: {fileID: 591472272}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: CrossHairs
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -429,6 +445,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 642538506}
+  - component: {fileID: 642538507}
+  - component: {fileID: 642538508}
   m_Layer: 0
   m_Name: Crane
   m_TagString: Untagged
@@ -453,6 +471,34 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 19.2, z: 0}
+--- !u!114 &642538507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642538505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a66fa703ddd78e945a6bc704893927ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 50
+--- !u!114 &642538508
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 642538505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 025028395cf43d446a1c48b28340c1b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cranehook: {fileID: 1829676898}
+  crosshairs: {fileID: 591472272}
+  moveSpeed: 5
 --- !u!1 &926347090
 GameObject:
   m_ObjectHideFlags: 0
