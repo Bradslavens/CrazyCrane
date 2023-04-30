@@ -1,9 +1,10 @@
 using UnityEngine;
 
-
 public class MoveTowardsTarget : MonoBehaviour
 {
     public Transform target;
+    public Transform forwardRaycastObject;
+    public Transform downRaycastObject;
     public float forwardRayDistance = 1f;
     public float downRayDistance = 1f;
     public float walkingSpeed = 5f;
@@ -31,34 +32,34 @@ public class MoveTowardsTarget : MonoBehaviour
         TurnNPCTowardsTarget();
     }
 
-    private bool ShootRaycastForward(float rayDistance)
+    private bool ShootRaycastForward(float rayDistance, Transform raycastObject)
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, transform.forward, out hit, rayDistance))
+        if (Physics.Raycast(raycastObject.position, raycastObject.forward, out hit, rayDistance))
         {
-            Debug.DrawRay(transform.position, transform.forward * hit.distance, Color.green);
+            Debug.DrawRay(raycastObject.position, raycastObject.forward * hit.distance, Color.green);
             return true;
         }
         else
         {
-            Debug.DrawRay(transform.position, transform.forward * rayDistance, Color.red);
+            Debug.DrawRay(raycastObject.position, raycastObject.forward * rayDistance, Color.red);
             return false;
         }
     }
 
-    private bool ShootRaycastDown(float rayDistance)
+    private bool ShootRaycastDown(float rayDistance, Transform raycastObject)
     {
         RaycastHit hit;
 
-        if (Physics.Raycast(transform.position, -Vector3.up, out hit, rayDistance))
+        if (Physics.Raycast(raycastObject.position, -raycastObject.up, out hit, rayDistance))
         {
-            Debug.DrawRay(transform.position, -Vector3.up * hit.distance, Color.green);
+            Debug.DrawRay(raycastObject.position, -raycastObject.up * hit.distance, Color.green);
             return true;
         }
         else
         {
-            Debug.DrawRay(transform.position, -Vector3.up * rayDistance, Color.red);
+            Debug.DrawRay(raycastObject.position, -raycastObject.up * rayDistance, Color.red);
             return false;
         }
     }
@@ -67,27 +68,33 @@ public class MoveTowardsTarget : MonoBehaviour
     {
         if (npcState == NPCState.Walking)
         {
-            if (!ShootRaycastDown(downRayDistance))
+            if (!ShootRaycastDown(downRayDistance, downRaycastObject))
             {
                 npcState = NPCState.Falling;
+                Debug.Log("falling");
             }
-            else if (ShootRaycastForward(forwardRayDistance))
+            else if (ShootRaycastForward(forwardRayDistance, forwardRaycastObject))
             {
                 npcState = NPCState.Climbing;
+                Debug.Log("climbing");
             }
         }
         else if (npcState == NPCState.Falling)
         {
-            if (ShootRaycastDown(downRayDistance))
+            if (ShootRaycastDown(downRayDistance, downRaycastObject))
             {
                 npcState = NPCState.Walking;
+
+                Debug.Log("walking");
             }
         }
         else if (npcState == NPCState.Climbing)
         {
-            if (!ShootRaycastForward(forwardRayDistance))
+            if (!ShootRaycastForward(forwardRayDistance, forwardRaycastObject))
             {
                 npcState = NPCState.Walking;
+
+                Debug.Log("walking");
             }
         }
 
@@ -124,3 +131,5 @@ public class MoveTowardsTarget : MonoBehaviour
         }
     }
 }
+
+
