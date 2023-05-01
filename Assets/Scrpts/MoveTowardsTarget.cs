@@ -45,15 +45,18 @@ public class MoveTowardsTarget : MonoBehaviour
     {
         if (target != null && ShootRaycastForward(forwardRayDistance, forwardRaycastObject))
         {
+            rb.useGravity = false; // Disable gravity while climbing
             rb.MovePosition(transform.position + Vector3.up * climbingSpeed * Time.deltaTime);
         }
         else if (target != null)
         {
+            rb.useGravity = true; // Enable gravity while walking or falling
             Vector3 direction = (target.position - transform.position).normalized;
             rb.MovePosition(transform.position + direction * walkingSpeed * Time.deltaTime);
         }
         else
         {
+            rb.useGravity = true; // Enable gravity when there's no target
             rb.velocity = Vector3.zero;
         }
     }
