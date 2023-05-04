@@ -33,7 +33,7 @@ public class EnemyController : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle") && !isColliding)
         {
             isColliding = true;
-            StartCoroutine(Climb(collision));
+            StartCoroutine(Climb());
         }
     }
 
