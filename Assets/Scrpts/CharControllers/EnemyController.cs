@@ -30,6 +30,8 @@ public class EnemyController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
+        Debug.Log(collision.contacts[0].normal);
+
         if (collision.gameObject.CompareTag("Obstacle") && !isColliding)
         {
             isColliding = true;
