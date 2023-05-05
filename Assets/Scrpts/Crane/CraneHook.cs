@@ -27,11 +27,6 @@ public class CraneHook : MonoBehaviour
                 isRaising = true;
             }
         }
-
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            Destroy(gameObject);
-        }
     }
 
     private void FixedUpdate()
