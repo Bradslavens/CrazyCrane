@@ -6,12 +6,26 @@ public class CraneHook : MonoBehaviour
     public float sphereCastRadius = 0.5f; // The radius of the sphere used for casting
 
     private bool isLowering = false; // Flag for whether the hook is currently lowering
+    private bool isRaising = false; // Flag for whether the hook is currently raising
+    private Vector3 originalPosition; // The original position of the Crane Hook object
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.H))
         {
-            isLowering = true;
+            if (!isLowering && !isRaising)
+            {
+                isLowering = true;
+                originalPosition = transform.position;
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            if (!isRaising && !isLowering)
+            {
+                isRaising = true;
+            }
         }
     }
 
@@ -21,7 +35,16 @@ public class CraneHook : MonoBehaviour
         {
             transform.Translate(Vector3.down * speed * Time.fixedDeltaTime);
         }
+        else if (isRaising && Input.GetKey(KeyCode.R))
+        {
+            transform.position = Vector3.MoveTowards(transform.position, originalPosition, speed * Time.fixedDeltaTime);
+            if (transform.position == originalPosition)
+            {
+                isRaising = false;
+            }
+        }
     }
+
 
     private void OnTriggerStay(Collider other)
     {
@@ -38,6 +61,7 @@ public class CraneHook : MonoBehaviour
                     isLowering = false;
                     joint.connectedBody = GetComponent<Rigidbody>();
                     joint.anchor = joint.transform.InverseTransformPoint(hit.point);
+                    isRaising = true;
                 }
             }
         }
