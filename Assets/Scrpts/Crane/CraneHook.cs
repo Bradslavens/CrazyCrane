@@ -32,6 +32,11 @@ public class CraneHook : MonoBehaviour
             foreach (RaycastHit hit in hits)
             {
                 Debug.Log("Contact point: " + hit.point);
+                CharacterJoint joint = hit.collider.GetComponent<CharacterJoint>();
+                if (joint != null)
+                {
+                    isLowering = false;
+                }
             }
         }
     }
