@@ -36,6 +36,7 @@ public class CraneHook : MonoBehaviour
                 if (joint != null)
                 {
                     isLowering = false;
+                    joint.connectedBody = GetComponent<Rigidbody>();
                 }
             }
         }
