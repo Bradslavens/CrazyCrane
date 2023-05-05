@@ -37,6 +37,7 @@ public class CraneHook : MonoBehaviour
                 {
                     isLowering = false;
                     joint.connectedBody = GetComponent<Rigidbody>();
+                    joint.anchor = joint.transform.InverseTransformPoint(hit.point);
                 }
             }
         }
