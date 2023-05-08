@@ -11,15 +11,18 @@ public class JointCollisionHandler : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        Rigidbody otherBody = collision.rigidbody;
-
-        if (otherBody != null)
+        if (collision.gameObject.CompareTag("Hook"))
         {
-            Vector3 contactPoint = collision.contacts[0].point;
+            Rigidbody otherBody = collision.rigidbody;
 
-            // Set the connected body and anchor point of the character joint
-            characterJoint.connectedBody = otherBody;
-            characterJoint.anchor = characterJoint.transform.InverseTransformPoint(contactPoint);
+            if (otherBody != null)
+            {
+                Vector3 contactPoint = collision.contacts[0].point;
+
+                // Set the connected body and anchor point of the character joint
+                characterJoint.connectedBody = otherBody;
+                characterJoint.anchor = characterJoint.transform.InverseTransformPoint(contactPoint);
+            }
         }
     }
 }
