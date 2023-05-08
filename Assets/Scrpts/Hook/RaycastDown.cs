@@ -10,8 +10,9 @@ public class RaycastDown : MonoBehaviour
     {
         RaycastHit hit;
 
-        // Perform a raycast down from the object's position with an unlimited distance
-        if (Physics.Raycast(transform.position, Vector3.down, out hit, Mathf.Infinity))
+        // Perform a raycast down from the Ray child object's position with an unlimited distance
+        Transform rayTransform = transform.Find("Ray");
+        if (Physics.Raycast(rayTransform.position, Vector3.down, out hit, Mathf.Infinity))
         {
             // If the raycast hits something, print the hit object's name and the distance
             float distance = hit.distance;
@@ -24,5 +25,8 @@ public class RaycastDown : MonoBehaviour
         {
             Debug.Log("No object hit");
         }
+
+        // Draw a debug ray to visualize the raycast
+        Debug.DrawRay(rayTransform.position, Vector3.down * 1000f, Color.red);
     }
 }
