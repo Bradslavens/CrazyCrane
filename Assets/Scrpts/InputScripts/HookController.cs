@@ -10,7 +10,7 @@ public class HookController : MonoBehaviour
 
     private void Start()
     {
-        hookAction = GetComponent<PlayerInput>().actions.FindAction("Hook");
+        hookAction = GetComponent<PlayerInput>().actions.FindAction("Head");
         hookTransform = transform.Find("arm/Hook");
     }
 

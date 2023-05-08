@@ -15,9 +15,18 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "Hook",
+                    "name": "Head",
                     "type": "Button",
                     "id": "42494e4d-0b82-40f4-8f6e-ab42ed534821",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Hook",
+                    "type": "Button",
+                    "id": "480ed0d5-4828-441a-a1a2-73ac635a89c4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -109,7 +118,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Hook",
+                    "action": "Head",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -120,7 +129,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Hook",
+                    "action": "Head",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -131,7 +140,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Hook",
+                    "action": "Head",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -142,7 +151,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Hook",
+                    "action": "Head",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -153,7 +162,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Hook",
+                    "action": "Head",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
@@ -164,7 +173,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Hook",
+                    "action": "Head",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
@@ -172,6 +181,83 @@
                     "name": "positive",
                     "id": "b5a1cc46-4ae5-4351-b670-685b2e8060c6",
                     "path": "<Gamepad>/leftStick/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Head",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "",
+                    "id": "3a2d9378-2992-4a0f-b31b-a6c214825db9",
+                    "path": "",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hook",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "Keyboard",
+                    "id": "5b343150-5aa5-4154-bce2-3ccee149cae7",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hook",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "fbd6e9e7-09d6-4da9-90e1-e333d155b2d2",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hook",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "1bd7db73-0dce-43f1-b4d0-3537f03949dd",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hook",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Pad",
+                    "id": "dd2e3647-e178-42d0-add0-15a3cae352ab",
+                    "path": "1DAxis",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hook",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "negative",
+                    "id": "4c6e6295-aa90-438d-a5e2-d4942cf1e209",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Hook",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "positive",
+                    "id": "c4fa905b-04a8-4b2c-a776-074a6a6912a5",
+                    "path": "<Gamepad>/dpad/up",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
