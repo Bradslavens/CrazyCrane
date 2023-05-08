@@ -2,13 +2,13 @@
     "name": "Movement",
     "maps": [
         {
-            "name": "RotateLR",
-            "id": "44ceb0a2-f090-43f7-bc45-910a2afbbd62",
+            "name": "Crane",
+            "id": "b8b32ff1-d293-4a44-a521-500adb02b0bb",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Rotate",
                     "type": "Button",
-                    "id": "4b186213-0158-4a98-aa88-158d840866e5",
+                    "id": "bc2c4966-4d33-4aa3-9233-44b72e0ec9b4",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -18,78 +18,78 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "958376bd-8f03-4ad8-bc72-50ea03baa072",
+                    "id": "716afcd3-1c38-4839-b270-8b00ce164d16",
                     "path": "",
                     "interactions": "",
                     "processors": "",
                     "groups": "Movement",
-                    "action": "New action",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "97660cbd-8749-4b76-9bff-2400857fbc13",
+                    "name": "Keyboard",
+                    "id": "c0d23c01-bf43-4c0a-8797-ee5a0ab41a38",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Rotate",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "negative",
-                    "id": "a54fdf79-3123-4906-90d2-f3ce7a62ed4a",
+                    "id": "aa903784-b2fa-4f3a-bab5-96750e7e2386",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Movement",
-                    "action": "New action",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "2988692f-8bc2-49b8-9f6d-184b587ef39c",
+                    "id": "bbafa27e-29c4-4951-85b6-1475fdfe3ebe",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Movement",
-                    "action": "New action",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "1D Axis",
-                    "id": "372fe81b-806e-4f3b-ad9c-3ce1754abae0",
+                    "name": "Pad",
+                    "id": "390fe05d-a630-424c-beb3-38b4231ff2d8",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Rotate",
                     "isComposite": true,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "negative",
-                    "id": "86560743-f27c-406b-9a04-2c58eff46168",
+                    "id": "b167aca3-5f8d-4e58-835b-e551f86e53e4",
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
                     "groups": "Movement",
-                    "action": "New action",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "e2c37a34-0f45-427b-ad4e-11639a119cd6",
+                    "id": "2de5a1cf-2e23-4637-825e-421037089585",
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
                     "groups": "Movement",
-                    "action": "New action",
+                    "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 }
@@ -102,13 +102,13 @@
             "bindingGroup": "Movement",
             "devices": [
                 {
-                    "devicePath": "<SwitchProControllerHID>",
-                    "isOptional": false,
+                    "devicePath": "<Keyboard>",
+                    "isOptional": true,
                     "isOR": false
                 },
                 {
-                    "devicePath": "<Keyboard>",
-                    "isOptional": false,
+                    "devicePath": "<SwitchProControllerHID>",
+                    "isOptional": true,
                     "isOR": false
                 }
             ]

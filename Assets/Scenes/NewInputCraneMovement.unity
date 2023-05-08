@@ -225,7 +225,6 @@ GameObject:
   - component: {fileID: 212276438}
   - component: {fileID: 212276437}
   - component: {fileID: 212276436}
-  - component: {fileID: 212276439}
   m_Layer: 0
   m_Name: CraneCamera
   m_TagString: MainCamera
@@ -299,21 +298,6 @@ Transform:
   m_Father: {fileID: 98053646806530686}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 48, y: 26.97, z: 0}
---- !u!114 &212276439
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 212276435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: acf2b5a2d6bbfdc41b36aed9e99a0146, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 50
-  minAngle: -45
-  maxAngle: 45
 --- !u!1 &320204523
 GameObject:
   m_ObjectHideFlags: 0
@@ -874,8 +858,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 642538506}
-  - component: {fileID: 642538507}
-  - component: {fileID: 642538508}
   m_Layer: 0
   m_Name: Crane
   m_TagString: Untagged
@@ -899,37 +881,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 14.78, z: 0}
---- !u!114 &642538507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642538505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a66fa703ddd78e945a6bc704893927ad, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 50
---- !u!114 &642538508
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 642538505}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea0771aaf53132240bfd7043b90b6797, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  craneHead: {fileID: 0}
-  obstacleLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  fireKey: 32
-  craneHeadSpeed: 34.18
 --- !u!1 &926347090
 GameObject:
   m_ObjectHideFlags: 0
@@ -2086,6 +2037,7 @@ GameObject:
   m_Component:
   - component: {fileID: 98053646806530686}
   - component: {fileID: 4881466182289154249}
+  - component: {fileID: 4881466182289154251}
   - component: {fileID: 1944098717632608811}
   - component: {fileID: 4881466182289154250}
   m_Layer: 0
@@ -2153,9 +2105,21 @@ MonoBehaviour:
   m_ActionEvents: []
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Movement
-  m_DefaultActionMap: RotateLR
+  m_DefaultActionMap: Crane
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &4881466182289154251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3103406078761547337}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454a9025aded1024dab503c17e18bb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7225780403080345494
 GameObject:
   m_ObjectHideFlags: 0
