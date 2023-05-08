@@ -3,6 +3,7 @@ using UnityEngine.InputSystem;
 
 public class RotateObj : MonoBehaviour
 {
+    [SerializeField]
     private float rotateSpeed = 100.0f;
     private InputAction rotateAction;
     private Transform armTransform;
