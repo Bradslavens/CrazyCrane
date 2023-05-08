@@ -1977,13 +1977,71 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 543450651789404491}
+  - component: {fileID: 919132147853095924}
+  - component: {fileID: 919132147853095923}
+  - component: {fileID: 919132147853095922}
   m_Layer: 0
-  m_Name: uploads_files_778970_type3+jib+crane
+  m_Name: CraneBody
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132147853095922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147853095921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 732721a561a39284f8caac59799bfb93, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Movement
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
+--- !u!114 &919132147853095923
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147853095921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4afb0716517433a4680712da2bb14911, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 300
+--- !u!114 &919132147853095924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132147853095921}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 454a9025aded1024dab503c17e18bb8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!23 &1944098717632608811
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -2037,9 +2095,7 @@ GameObject:
   m_Component:
   - component: {fileID: 98053646806530686}
   - component: {fileID: 4881466182289154249}
-  - component: {fileID: 4881466182289154251}
   - component: {fileID: 1944098717632608811}
-  - component: {fileID: 4881466182289154250}
   m_Layer: 0
   m_Name: arm
   m_TagString: Untagged
@@ -2078,48 +2134,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3103406078761547337}
   m_Mesh: {fileID: 5690975394302024261, guid: c37b665562032ee49bd3cf620a2683fb, type: 3}
---- !u!114 &4881466182289154250
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3103406078761547337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: f3503293937c74144812c7619b21a3e5, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Movement
-  m_DefaultActionMap: Crane
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &4881466182289154251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3103406078761547337}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 454a9025aded1024dab503c17e18bb8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7225780403080345494
 GameObject:
   m_ObjectHideFlags: 0
@@ -2129,10 +2143,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 327835197496351323}
-  - component: {fileID: 7413781707432099590}
   - component: {fileID: 7413781707432099587}
   - component: {fileID: 411082012636776637}
-  - component: {fileID: 7413781707432099589}
   m_Layer: 0
   m_Name: Hook
   m_TagString: Untagged
@@ -2148,49 +2160,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7225780403080345494}
   m_Mesh: {fileID: 7251289315227598400, guid: c37b665562032ee49bd3cf620a2683fb, type: 3}
---- !u!114 &7413781707432099589
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7225780403080345494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Actions: {fileID: -944628639613478452, guid: f3503293937c74144812c7619b21a3e5, type: 3}
-  m_NotificationBehavior: 0
-  m_UIInputModule: {fileID: 0}
-  m_DeviceLostEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_DeviceRegainedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ControlsChangedEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  m_ActionEvents: []
-  m_NeverAutoSwitchControlSchemes: 0
-  m_DefaultControlScheme: Movement
-  m_DefaultActionMap: Crane
-  m_SplitScreenIndex: -1
-  m_Camera: {fileID: 0}
---- !u!114 &7413781707432099590
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7225780403080345494}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4afb0716517433a4680712da2bb14911, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 500
 --- !u!23 &9181683224784456150
 MeshRenderer:
   m_ObjectHideFlags: 0

@@ -6,20 +6,20 @@ public class HookController : MonoBehaviour
     [SerializeField]
     private float moveSpeed = 200.0f;
     private InputAction hookAction;
+    private Transform hookTransform;
 
     private void Start()
     {
-        // Get the Hook action from the PlayerInput component
         hookAction = GetComponent<PlayerInput>().actions.FindAction("Hook");
+        hookTransform = transform.Find("arm/Hook");
     }
 
     private void FixedUpdate()
     {
-        // Read the input value of the Hook action
         float hookInputValue = hookAction.ReadValue<float>();
         Debug.Log(hookInputValue);
 
-        // Move the player based on the input value
-        transform.position += transform.forward * hookInputValue * moveSpeed * Time.deltaTime;
+        // Move the Hook child object based on the input value
+        hookTransform.position += hookTransform.forward * hookInputValue * moveSpeed * Time.deltaTime;
     }
 }

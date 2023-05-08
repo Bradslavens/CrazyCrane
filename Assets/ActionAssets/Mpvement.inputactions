@@ -1,14 +1,14 @@
 {
-    "name": "Movement",
+    "name": "Mpvement",
     "maps": [
         {
-            "name": "Crane",
-            "id": "b8b32ff1-d293-4a44-a521-500adb02b0bb",
+            "name": "Movement",
+            "id": "6ff534e5-d583-42b2-88dd-b2c0bcc306d3",
             "actions": [
                 {
                     "name": "Rotate",
                     "type": "Button",
-                    "id": "bc2c4966-4d33-4aa3-9233-44b72e0ec9b4",
+                    "id": "7c9c5878-9e8e-4ee9-ad13-3653983b2559",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -17,7 +17,7 @@
                 {
                     "name": "Hook",
                     "type": "Button",
-                    "id": "d680bd5d-c827-4004-9f0a-f0e71023c608",
+                    "id": "42494e4d-0b82-40f4-8f6e-ab42ed534821",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -27,18 +27,18 @@
             "bindings": [
                 {
                     "name": "",
-                    "id": "716afcd3-1c38-4839-b270-8b00ce164d16",
+                    "id": "cbf72e7b-e854-4da6-ab75-7676037d9f58",
                     "path": "",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Movement",
+                    "groups": "",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "Keyboard",
-                    "id": "c0d23c01-bf43-4c0a-8797-ee5a0ab41a38",
+                    "id": "edb92eea-37f5-498e-9482-bafed5692a80",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -49,29 +49,29 @@
                 },
                 {
                     "name": "negative",
-                    "id": "aa903784-b2fa-4f3a-bab5-96750e7e2386",
+                    "id": "385af677-005f-43b9-8a05-3aea6cc7f9df",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Movement",
+                    "groups": "",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "bbafa27e-29c4-4951-85b6-1475fdfe3ebe",
+                    "id": "fcfe8b89-1a83-4715-a238-8f12e283f7cb",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Movement",
+                    "groups": "",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "Pad",
-                    "id": "390fe05d-a630-424c-beb3-38b4231ff2d8",
+                    "id": "8a2ca178-9022-4fe6-9f01-f11022282a0f",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -82,29 +82,29 @@
                 },
                 {
                     "name": "negative",
-                    "id": "b167aca3-5f8d-4e58-835b-e551f86e53e4",
+                    "id": "9a57e843-8a33-4f05-b699-bcbf3c4ca1ca",
                     "path": "<Gamepad>/leftStick/left",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Movement",
+                    "groups": "",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "2de5a1cf-2e23-4637-825e-421037089585",
+                    "id": "6a159023-58e5-48b9-b546-7389d92c1095",
                     "path": "<Gamepad>/leftStick/right",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Movement",
+                    "groups": "",
                     "action": "Rotate",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "",
-                    "id": "1151adaa-05df-4f58-93b2-f37a8337a437",
+                    "id": "7d215314-bacb-4976-a8f5-be6a32e2ffbb",
                     "path": "",
                     "interactions": "",
                     "processors": "",
@@ -115,7 +115,7 @@
                 },
                 {
                     "name": "Keyboard",
-                    "id": "2cf1d933-3fc9-4f06-8cb2-297386544a2d",
+                    "id": "21ac5255-702a-4c75-a6a9-713cb320ffc9",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -126,29 +126,29 @@
                 },
                 {
                     "name": "negative",
-                    "id": "3664eca4-3b05-4087-82cf-ddddd78f2308",
+                    "id": "e15d959c-fb47-4c8b-9b1f-8589ff5572b3",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Movement",
+                    "groups": "",
                     "action": "Hook",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "0bb80016-9624-422f-bd4c-a9fccd33f928",
+                    "id": "c8fc3262-b208-4a51-8bc1-e4024a01727f",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Movement",
+                    "groups": "",
                     "action": "Hook",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "GamePad",
-                    "id": "5b98d892-2131-4255-9e6d-875705a695a0",
+                    "name": "Pad",
+                    "id": "006937a7-6daa-497f-80d7-abbb5445bc4c",
                     "path": "1DAxis",
                     "interactions": "",
                     "processors": "",
@@ -159,22 +159,22 @@
                 },
                 {
                     "name": "negative",
-                    "id": "241c2cac-49ee-4eab-8209-91da5d66cc69",
+                    "id": "18de4211-eb3f-44ce-a844-d7523359343b",
                     "path": "<Gamepad>/leftStick/down",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Movement",
+                    "groups": "",
                     "action": "Hook",
                     "isComposite": false,
                     "isPartOfComposite": true
                 },
                 {
                     "name": "positive",
-                    "id": "61e2e969-359c-4110-a1c7-3cef7fd8d0a1",
+                    "id": "b5a1cc46-4ae5-4351-b670-685b2e8060c6",
                     "path": "<Gamepad>/leftStick/up",
                     "interactions": "",
                     "processors": "",
-                    "groups": "Movement",
+                    "groups": "",
                     "action": "Hook",
                     "isComposite": false,
                     "isPartOfComposite": true
@@ -182,22 +182,5 @@
             ]
         }
     ],
-    "controlSchemes": [
-        {
-            "name": "Movement",
-            "bindingGroup": "Movement",
-            "devices": [
-                {
-                    "devicePath": "<Keyboard>",
-                    "isOptional": true,
-                    "isOR": false
-                },
-                {
-                    "devicePath": "<SwitchProControllerHID>",
-                    "isOptional": true,
-                    "isOR": false
-                }
-            ]
-        }
-    ]
+    "controlSchemes": []
 }
