@@ -5,6 +5,7 @@ public class DisconnectCharacterJoint : MonoBehaviour
 {
     private CharacterJoint characterJoint;
     private InputAction obstacleAction;
+    public bool hooked = false;
 
     void Start()
     {
