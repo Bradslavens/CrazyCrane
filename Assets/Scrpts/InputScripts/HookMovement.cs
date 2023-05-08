@@ -5,12 +5,11 @@ public class HookMovement : MonoBehaviour
 {
     [SerializeField] private float moveSpeed = 200.0f;
     private InputAction hookAction;
-    private Transform hookTransform;
+    public Transform hookTransform;
 
     private void Start()
     {
         hookAction = GetComponent<PlayerInput>().actions.FindAction("Hook");
-        hookTransform = transform.Find("arm/Hook");
 
         if (hookAction == null)
         {
