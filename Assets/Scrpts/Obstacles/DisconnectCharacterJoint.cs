@@ -11,18 +11,15 @@ public class DisconnectCharacterJoint : MonoBehaviour
     {
         characterJoint = GetComponent<CharacterJoint>();
         obstacleAction = GetComponent<PlayerInput>().actions.FindAction("Obstacle");
-
     }
 
     void FixedUpdate()
     {
         float inputValue = obstacleAction.ReadValue<float>();
         Debug.Log("obstacle input value " + inputValue);
-        if(inputValue == 1.0f)
-        {
-            // Get a reference to the CharacterJoint component
-            CharacterJoint characterJoint = GetComponent<CharacterJoint>();
 
+        if (hooked && inputValue == 1.0f)
+        {
             // Check if the CharacterJoint component exists
             if (characterJoint != null)
             {
