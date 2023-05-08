@@ -19,7 +19,15 @@ public class DisconnectCharacterJoint : MonoBehaviour
         Debug.Log("obstacle input value " + inputValue);
         if(inputValue == 1.0f)
         {
-            characterJoint.connectedBody = null;
+            // Get a reference to the CharacterJoint component
+            CharacterJoint characterJoint = GetComponent<CharacterJoint>();
+
+            // Check if the CharacterJoint component exists
+            if (characterJoint != null)
+            {
+                // Destroy the CharacterJoint component
+                Destroy(characterJoint);
+            }
         }
     }
 }
