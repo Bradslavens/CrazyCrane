@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 1404272318728987801}
   - component: {fileID: 1404272318728987749}
   m_Layer: 0
-  m_Name: Obstacle
+  m_Name: Obstacle - Copy
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
