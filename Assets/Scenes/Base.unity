@@ -1473,9 +1473,9 @@ GameObject:
   - component: {fileID: 5780063701464321108}
   - component: {fileID: 3628025537832528140}
   - component: {fileID: 5840651698930867890}
-  - component: {fileID: 3628025537832528139}
   - component: {fileID: 88639150}
   - component: {fileID: 88639149}
+  - component: {fileID: 5840651698930867891}
   m_Layer: 0
   m_Name: Hook
   m_TagString: Hook
@@ -1483,19 +1483,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &3628025537832528139
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3530116023118193049}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f4ba782275ea0594e881bb8565c20fc9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textMeshProObject: {fileID: 2244005154092325185}
 --- !u!33 &3628025537832528140
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -1594,6 +1581,19 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &5840651698930867891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3530116023118193049}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c94a3b009d85df241af215cfef4a7023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textMeshProObject: {fileID: 2244005154092325185}
 --- !u!1 &7206953478489316110
 GameObject:
   m_ObjectHideFlags: 0
