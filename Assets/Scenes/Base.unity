@@ -845,7 +845,7 @@ GameObject:
   - component: {fileID: 662012729}
   m_Layer: 0
   m_Name: TargetZombie
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -967,6 +967,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 662012733}
+    - target: {fileID: 5770770032294704750, guid: 2e193d2f334c74d48a4e415501b4223c, type: 3}
+      propertyPath: walkSpeed
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5770770032294704751, guid: 2e193d2f334c74d48a4e415501b4223c, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -981,7 +985,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5770770032294704751, guid: 2e193d2f334c74d48a4e415501b4223c, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 5.53
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5770770032294704751, guid: 2e193d2f334c74d48a4e415501b4223c, type: 3}
       propertyPath: m_LocalRotation.w
@@ -1019,7 +1023,8 @@ PrefabInstance:
       propertyPath: m_Center.y
       value: 2.896958
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3846219495660331159, guid: 2e193d2f334c74d48a4e415501b4223c, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 2e193d2f334c74d48a4e415501b4223c, type: 3}
 --- !u!1001 &1134858890
 PrefabInstance:
@@ -1212,7 +1217,7 @@ GameObject:
   - component: {fileID: 1562416565}
   m_Layer: 0
   m_Name: TargetSoldier
-  m_TagString: Untagged
+  m_TagString: Target
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

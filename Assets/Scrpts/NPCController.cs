@@ -113,4 +113,15 @@ public class NPCController : MonoBehaviour
                 break;
         }
     }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        Debug.Log(" zombie hit trigger ");
+
+        if (other.transform == target)
+        {
+            state = NPCState.Idle;
+            animator.Play("idle");
+        }
+    }
 }
