@@ -26,7 +26,7 @@ public class CharacterMovement : MonoBehaviour
 
             transform.Translate(Vector3.forward * movementSpeed * Time.deltaTime);
 
-            animator.SetBool("isRunning", true);
+            animator.Play("Running");
         }
     }
 
@@ -35,7 +35,7 @@ public class CharacterMovement : MonoBehaviour
         if (other.transform == target)
         {
             isMoving = false;
-            animator.SetBool("isRunning", false);
+            animator.Play("Shooting");
         }
     }
 }

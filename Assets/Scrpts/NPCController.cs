@@ -12,23 +12,30 @@ public class NPCController : MonoBehaviour
     private RaycastHit raycastHit; // Store the raycast hit information
     private Vector3 hitPoint; // Store the hit point
     private NPCState state; // Current state of the NPC
+    private Animator animator; // Animator component reference
 
     private enum NPCState
     {
         Falling,
         Walking,
-        Climbing
+        Climbing,
+        Idle
     }
 
     private void Start()
     {
         rayGun = transform.Find("RayGun"); // Assuming the child object is named "RayGun"
         state = NPCState.Falling; // Set the initial state to Falling
+
+        // Get the Animator component on the child object
+        animator = GetComponentInChildren<Animator>();
+
     }
 
     private void Update()
     {
         // Perform the raycast downwards
+
         if (Physics.Raycast(rayGun.position, Vector3.down, out raycastHit, raycastRange))
         {
             hitPoint = raycastHit.point; // Store the hit point
@@ -63,9 +70,18 @@ public class NPCController : MonoBehaviour
         // Update the object's behavior based on the state
         switch (state)
         {
+
+            case NPCState.Idle:
+                Vector3 noMove = new Vector3(0, 0, 0);
+                // Translate down at fall speed
+                transform.Translate(noMove);
+                animator.Play("idle"); // Play the idle animation
+                break;
+
             case NPCState.Falling:
                 // Translate down at fall speed
                 transform.Translate(Vector3.down * fallSpeed * Time.deltaTime);
+                animator.Play("idle"); // Play the idle animation
                 break;
 
             case NPCState.Walking:
@@ -85,6 +101,7 @@ public class NPCController : MonoBehaviour
 
                 // Translate forward at walk speed
                 transform.Translate(Vector3.forward * walkSpeed * Time.deltaTime);
+                animator.Play("walking"); // Play the walking animation
                 break;
 
 
@@ -92,6 +109,7 @@ public class NPCController : MonoBehaviour
                 // Translate up at climb speed
                 Debug.Log("CCC");
                 transform.Translate(Vector3.up * climbSpeed * Time.deltaTime);
+                animator.Play("climbing"); // Play the climbing animation
                 break;
         }
     }
