@@ -71,6 +71,14 @@ crashlytics-build.properties
 /[Aa]ssets/[Ss]treamingAssets/aa.meta
 /[Aa]ssets/[Ss]treamingAssets/aa/*
 
-#Folders
+#Custom
 /Assets/Mixamo/
 /Assets/Mixamo.meta
+Assets/20 Texture Sets INDUSTRIAL 01.meta
+Assets/20 Texture Sets INDUSTRIAL 01/
+Assets/3D Haven.meta
+Assets/3D Haven/
+Assets/YughuesFreeMetalMaterials.meta
+Assets/YughuesFreeMetalMaterials/
+
+
