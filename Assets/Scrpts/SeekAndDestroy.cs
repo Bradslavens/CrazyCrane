@@ -19,10 +19,29 @@ public class SeekAndDestroy : MonoBehaviour
 
     public float movementSpeed = 1f; // The speed at which this game object will move towards the target
 
+    private bool shouldMove = true; // A flag to determine if the game object should continue moving
+
+    private Animator animator; // Animator component
+
+    private void Awake()
+    {
+        // Get the Animator component
+        animator = GetComponent<Animator>();
+    }
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == targetObject) // Check if the triggered object is the target object
         {
+            // Stop moving
+            shouldMove = false;
+
+            // Start shooting animation
+            animator.SetTrigger("Shooting");
+
+            // Rotate towards target
+            RotateTowardsTarget();
+
             // Populate the enemyNPCs list when the trigger is entered
             PopulateEnemyNPCs();
 
@@ -30,6 +49,15 @@ public class SeekAndDestroy : MonoBehaviour
             InitializeProjectilePool();
         }
     }
+
+    private void RotateTowardsTarget()
+    {
+        Vector3 direction = targetObject.transform.position - transform.position;
+        direction.y = 0;  // Keep the rotation on the Y-axis only
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
+    }
+
 
     private void PopulateEnemyNPCs()
     {
@@ -56,14 +84,19 @@ public class SeekAndDestroy : MonoBehaviour
 
     private void Update()
     {
-        // Move towards the target
-        MoveTowardsTarget();
+        if (shouldMove)
+        {
+            // Move towards the target
+            MoveTowardsTarget();
+        }
+
+        // Always face the target
+        RotateTowardsTarget();
 
         // Example usage: Find closest enemy and rotate towards it
         GameObject closestEnemy = FindClosestEnemy();
         if (closestEnemy != null)
         {
-            Debug.Log("firing");
             RotateTowardsEnemy(closestEnemy);
             FireAtEnemy();
         }
@@ -75,7 +108,7 @@ public class SeekAndDestroy : MonoBehaviour
         transform.position = Vector3.MoveTowards(transform.position, targetObject.transform.position, step);
     }
 
-private GameObject FindClosestEnemy()
+    private GameObject FindClosestEnemy()
     {
         GameObject closestEnemy = null;
         float closestDistance = Mathf.Infinity;
