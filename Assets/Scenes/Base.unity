@@ -364,7 +364,8 @@ PrefabInstance:
       propertyPath: m_Name
       value: Soldier
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 2446138931080416951, guid: 7564bea8fa7550442946fc4e42ab89b6, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 2772202071383483302, guid: 7564bea8fa7550442946fc4e42ab89b6, type: 3}
@@ -495,6 +496,7 @@ MonoBehaviour:
   projectilePoolSize: 10
   fireInterval: 1
   targetObject: {fileID: 1562416564}
+  movementSpeed: 10
 --- !u!1 &413934839
 GameObject:
   m_ObjectHideFlags: 0

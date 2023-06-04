@@ -18,7 +18,7 @@ public class CharacterSpawner : MonoBehaviour
         for (int i = 0; i < numberOfCharacters; i++)
         {
             Vector3 randomPosition = GetRandomPosition();
-            GameObject characterInstance = Instantiate(characterPrefab, randomPosition, Quaternion.identity);
+            GameObject characterInstance = Instantiate(characterPrefab, randomPosition, Quaternion.identity, transform);
             NPCController characterScript = characterInstance.GetComponent<NPCController>();
             if (characterScript != null)
             {

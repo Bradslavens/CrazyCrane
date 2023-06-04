@@ -17,6 +17,8 @@ public class SeekAndDestroy : MonoBehaviour
 
     public GameObject targetObject; // The object that this script will interact with
 
+    public float movementSpeed = 1f; // The speed at which this game object will move towards the target
+
     private void OnTriggerEnter(Collider other)
     {
         if (other.gameObject == targetObject) // Check if the triggered object is the target object
@@ -31,6 +33,8 @@ public class SeekAndDestroy : MonoBehaviour
 
     private void PopulateEnemyNPCs()
     {
+        Debug.Log("populating enemies");
+
         foreach (Transform child in enemySpawner)
         {
             if (child.CompareTag("Enemy"))
@@ -52,19 +56,30 @@ public class SeekAndDestroy : MonoBehaviour
 
     private void Update()
     {
+        // Move towards the target
+        MoveTowardsTarget();
+
         // Example usage: Find closest enemy and rotate towards it
         GameObject closestEnemy = FindClosestEnemy();
         if (closestEnemy != null)
         {
+            Debug.Log("firing");
             RotateTowardsEnemy(closestEnemy);
             FireAtEnemy();
         }
     }
 
-    private GameObject FindClosestEnemy()
+    private void MoveTowardsTarget()
+    {
+        float step = movementSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, targetObject.transform.position, step);
+    }
+
+private GameObject FindClosestEnemy()
     {
         GameObject closestEnemy = null;
         float closestDistance = Mathf.Infinity;
+        Debug.Log("enemies list " + enemyNPCs.Count);
 
         foreach (GameObject enemyNPC in enemyNPCs)
         {
