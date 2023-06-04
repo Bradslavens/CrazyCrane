@@ -116,7 +116,13 @@ public class NPCController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(" zombie hit trigger ");
+        Debug.Log("zombie hit trigger");
+
+        if (other.CompareTag("HittingObject"))
+        {
+            Destroy(gameObject);
+            return;
+        }
 
         if (other.transform == target)
         {
@@ -124,4 +130,6 @@ public class NPCController : MonoBehaviour
             animator.Play("idle");
         }
     }
+
+
 }

@@ -157,7 +157,7 @@ public class SeekAndDestroy : MonoBehaviour
             Rigidbody projectileRigidbody = projectile.GetComponent<Rigidbody>();
 
             // Set the speed of the projectile
-            float projectileSpeed = 10f; // Adjust the speed as desired
+            float projectileSpeed = 50f; // Adjust the speed as desired
 
             // Calculate the movement vector based on the projectile's local forward direction
             Vector3 velocity = projectile.transform.forward * projectileSpeed;
