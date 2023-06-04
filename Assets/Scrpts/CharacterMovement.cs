@@ -6,7 +6,7 @@ public class CharacterMovement : MonoBehaviour
     public float rotationSpeed = 5f;
     public float movementSpeed = 5f;
     private Animator animator;
-    private bool isMoving = true;
+    public bool isMoving = true;
 
     private void Start()
     {

@@ -6,8 +6,9 @@ public class CharacterSpawner : MonoBehaviour
     public int numberOfCharacters = 5;
     public Transform waypoint1;
     public Transform waypoint2;
+    public Transform target;
 
-    private void Start()
+    private void Awake()
     {
         SpawnCharacters();
     }
@@ -17,7 +18,12 @@ public class CharacterSpawner : MonoBehaviour
         for (int i = 0; i < numberOfCharacters; i++)
         {
             Vector3 randomPosition = GetRandomPosition();
-            Instantiate(characterPrefab, randomPosition, Quaternion.identity);
+            GameObject characterInstance = Instantiate(characterPrefab, randomPosition, Quaternion.identity);
+            NPCController characterScript = characterInstance.GetComponent<NPCController>();
+            if (characterScript != null)
+            {
+                characterScript.target = target;
+            }
         }
     }
 

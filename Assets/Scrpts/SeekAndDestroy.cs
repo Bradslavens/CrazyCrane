@@ -7,21 +7,26 @@ public class SeekAndDestroy : MonoBehaviour
     private List<GameObject> enemyNPCs = new List<GameObject>();
 
     public GameObject projectilePrefab;
-    public Transform muzzle; // Reference to the child object named "Muzzle"
-    public int projectilePoolSize = 10; // Number of projectiles to initialize in the pool
+    public Transform muzzle;
+    public int projectilePoolSize = 10;
     private List<GameObject> projectilePool = new List<GameObject>();
     private int currentProjectileIndex = 0;
 
     public float fireInterval = 1f;
     private float fireTimer;
 
-    private void Start()
-    {
-        // Populate the enemyNPCs list when the script starts
-        PopulateEnemyNPCs();
+    public GameObject targetObject; // The object that this script will interact with
 
-        // Initialize the projectile pool
-        InitializeProjectilePool();
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == targetObject) // Check if the triggered object is the target object
+        {
+            // Populate the enemyNPCs list when the trigger is entered
+            PopulateEnemyNPCs();
+
+            // Initialize the projectile pool
+            InitializeProjectilePool();
+        }
     }
 
     private void PopulateEnemyNPCs()
