@@ -491,7 +491,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemySpawner: {fileID: 508551587}
-  enemyManager: {fileID: 1465391695}
   projectilePrefab: {fileID: 5266386085422068221, guid: 1409f9bbc0964ee459f78fa1cf09308e, type: 3}
   muzzle: {fileID: 20789494}
   projectilePoolSize: 10
@@ -509,7 +508,7 @@ GameObject:
   - component: {fileID: 413934842}
   - component: {fileID: 413934841}
   - component: {fileID: 413934840}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Terrain
   m_TagString: Obstacle
   m_Icon: {fileID: 0}
