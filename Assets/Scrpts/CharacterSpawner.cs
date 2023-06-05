@@ -8,6 +8,8 @@ public class CharacterSpawner : MonoBehaviour
     public Transform waypoint2;
     public Transform target;
 
+    public EnemyManager enemyManager;
+
     private void Awake()
     {
         SpawnCharacters();
@@ -24,6 +26,8 @@ public class CharacterSpawner : MonoBehaviour
             {
                 characterScript.target = target;
             }
+
+            enemyManager.AddEnemy(characterInstance);
         }
     }
 
