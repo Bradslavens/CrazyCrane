@@ -4,7 +4,8 @@ using UnityEngine;
 public class SeekAndDestroy : MonoBehaviour
 {
     public Transform enemySpawner;
-    private List<GameObject> enemyNPCs = new List<GameObject>();
+
+    public EnemyManager enemyManager; // Reference to the EnemyManager script
 
     public GameObject projectilePrefab;
     public Transform muzzle;
@@ -42,9 +43,6 @@ public class SeekAndDestroy : MonoBehaviour
             // Rotate towards target
             RotateTowardsTarget();
 
-            // Populate the enemyNPCs list when the trigger is entered
-            PopulateEnemyNPCs();
-
             // Initialize the projectile pool
             InitializeProjectilePool();
         }
@@ -56,20 +54,6 @@ public class SeekAndDestroy : MonoBehaviour
         direction.y = 0;  // Keep the rotation on the Y-axis only
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
-    }
-
-
-    private void PopulateEnemyNPCs()
-    {
-        Debug.Log("populating enemies");
-
-        foreach (Transform child in enemySpawner)
-        {
-            if (child.CompareTag("Enemy"))
-            {
-                enemyNPCs.Add(child.gameObject);
-            }
-        }
     }
 
     private void InitializeProjectilePool()
@@ -110,11 +94,12 @@ public class SeekAndDestroy : MonoBehaviour
 
     private GameObject FindClosestEnemy()
     {
+        Debug.Log("found");
+
         GameObject closestEnemy = null;
         float closestDistance = Mathf.Infinity;
-        Debug.Log("enemies list " + enemyNPCs.Count);
 
-        foreach (GameObject enemyNPC in enemyNPCs)
+        foreach (GameObject enemyNPC in enemyManager.currentEnemies)
         {
             if (enemyNPC.activeSelf) // Check if the enemy is active
             {
@@ -146,6 +131,9 @@ public class SeekAndDestroy : MonoBehaviour
             // Get the next available projectile from the pool
             GameObject projectile = GetNextAvailableProjectile();
 
+            // If there are no available projectiles, return
+            if (projectile == null) return;
+
             // Set the position and rotation of the projectile
             projectile.transform.position = muzzle.position;
             projectile.transform.rotation = muzzle.rotation;
@@ -172,6 +160,9 @@ public class SeekAndDestroy : MonoBehaviour
 
     private GameObject GetNextAvailableProjectile()
     {
+        // If the projectile pool is empty, return null
+        if (projectilePool.Count == 0) return null;
+
         // Get the next available projectile from the pool
         GameObject projectile = projectilePool[currentProjectileIndex];
         currentProjectileIndex = (currentProjectileIndex + 1) % projectilePool.Count;

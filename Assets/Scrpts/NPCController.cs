@@ -13,6 +13,8 @@ public class NPCController : MonoBehaviour
     private Vector3 hitPoint; // Store the hit point
     private NPCState state; // Current state of the NPC
     private Animator animator; // Animator component reference
+    private EnemyManager enemyManager; // Reference to the EnemyManager script
+
 
     private enum NPCState
     {
@@ -20,6 +22,11 @@ public class NPCController : MonoBehaviour
         Walking,
         Climbing,
         Idle
+    }
+
+    private void Awake()
+    {
+        enemyManager = GameObject.Find("EnemyManager").GetComponent<EnemyManager>();
     }
 
     private void Start()
@@ -114,12 +121,14 @@ public class NPCController : MonoBehaviour
         }
     }
 
+
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("zombie hit trigger");
 
         if (other.CompareTag("HittingObject"))
         {
+            enemyManager.RemoveEnemy(gameObject);
             Destroy(gameObject);
             return;
         }
@@ -130,6 +139,5 @@ public class NPCController : MonoBehaviour
             animator.Play("idle");
         }
     }
-
 
 }
