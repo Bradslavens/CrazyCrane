@@ -5,7 +5,7 @@ public class SeekAndDestroy : MonoBehaviour
 {
     public Transform enemySpawner;
 
-    public EnemyManager enemyManager; // Reference to the EnemyManager script
+    private EnemyManager enemyManager; // Reference to the EnemyManager script
 
     public GameObject projectilePrefab;
     public Transform muzzle;
@@ -28,6 +28,22 @@ public class SeekAndDestroy : MonoBehaviour
     {
         // Get the Animator component
         animator = GetComponent<Animator>();
+
+        // Find the Enemy Manager GameObject
+        GameObject enemyManagerObject = GameObject.Find("EnemyManager");
+
+        // Check if we found it
+        if (enemyManagerObject != null)
+        {
+            // Get the EnemyManager component
+            enemyManager = enemyManagerObject.GetComponent<EnemyManager>();
+        }
+
+        // Check if we got the component
+        if (enemyManager == null)
+        {
+            Debug.LogError("Could not find EnemyManager component on Enemy Manager object");
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -39,9 +55,6 @@ public class SeekAndDestroy : MonoBehaviour
 
             // Start shooting animation
             animator.SetTrigger("Shooting");
-
-            // Rotate towards target
-            RotateTowardsTarget();
 
             // Initialize the projectile pool
             InitializeProjectilePool();
@@ -72,10 +85,10 @@ public class SeekAndDestroy : MonoBehaviour
         {
             // Move towards the target
             MoveTowardsTarget();
-        }
 
-        // Always face the target
-        RotateTowardsTarget();
+            // Always face the target
+            RotateTowardsTarget();
+        }
 
         // Example usage: Find closest enemy and rotate towards it
         GameObject closestEnemy = FindClosestEnemy();
