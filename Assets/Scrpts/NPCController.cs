@@ -124,14 +124,6 @@ public class NPCController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("zombie hit trigger");
-
-        if (other.CompareTag("HittingObject"))
-        {
-            enemyManager.RemoveEnemy(gameObject);
-            Destroy(gameObject);
-            return;
-        }
 
         if (other.transform == target)
         {
