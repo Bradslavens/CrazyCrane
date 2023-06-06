@@ -50,23 +50,16 @@ public class NPCController : MonoBehaviour
             // Draw the raycast
             Debug.DrawRay(rayGun.position, Vector3.down * raycastRange, Color.red);
 
-            // Log the hit point's Y value
-            Debug.Log("Hit Point Y: " + hitPoint.y + " transform y " + transform.position.y);
-
             // Check the difference between transform.position.y and hitPoint.y
             float difference = transform.position.y - hitPoint.y;
-
-            Debug.Log(difference);
 
             if (difference < 0f)
             {
                 state = NPCState.Climbing;
-                Debug.Log("climbing");
             }
             else
             {
                 state = NPCState.Walking;
-                Debug.Log("walking");
             }
         }
         else
@@ -124,14 +117,6 @@ public class NPCController : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("zombie hit trigger");
-
-        if (other.CompareTag("HittingObject"))
-        {
-            enemyManager.RemoveEnemy(gameObject);
-            Destroy(gameObject);
-            return;
-        }
 
         if (other.transform == target)
         {
