@@ -4,6 +4,7 @@ public class FriendController : MonoBehaviour
 {
     public GameObject target;
     public float speed = 3.0f;
+    public float shootingRange = 1f;
 
     public enum CharacterState
     {
@@ -11,7 +12,7 @@ public class FriendController : MonoBehaviour
         Shooting
     }
 
-    public CharacterState state;
+    public CharacterState state = CharacterState.Running;
 
     void Update()
     {
@@ -26,6 +27,13 @@ public class FriendController : MonoBehaviour
             // Look at the target (y-axis only)
             var targetRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Euler(0, targetRotation.eulerAngles.y, 0);
+
+            // Check the distance to the target
+            float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
+            if (distanceToTarget <= shootingRange)
+            {
+                state = CharacterState.Shooting;
+            }
 
             if (state == CharacterState.Running)
             {
