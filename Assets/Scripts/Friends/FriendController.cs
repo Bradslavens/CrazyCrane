@@ -8,19 +8,11 @@ public class FriendController : MonoBehaviour
 
     private Animator animator;
 
-    public enum CharacterState
-    {
-        Running,
-        Shooting
-    }
-
-    public CharacterState state = CharacterState.Running;
-
-
     private void Start()
     {
         // Get the Animator component attached to the NPC
         animator = GetComponent<Animator>();
+
     }
 
     void Update()
@@ -41,20 +33,19 @@ public class FriendController : MonoBehaviour
             float distanceToTarget = Vector3.Distance(transform.position, target.transform.position);
             if (distanceToTarget <= shootingRange)
             {
-                state = CharacterState.Shooting;
+
             }
 
-            // Check the CharacterState of the FriendController component
-            if (state == CharacterState.Shooting)
+
+            if (true)
             {
                 // Play the Shooting animation
                 animator.SetTrigger("Shooting");
             }
-
-            if (state == CharacterState.Running)
+            else if (true)
             {
                 // Move the character towards the target
-                transform.position = transform.position + direction * speed * Time.deltaTime;
+                transform.position += direction * speed * Time.deltaTime;
             }
         }
     }
