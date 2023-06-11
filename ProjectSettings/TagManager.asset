@@ -8,11 +8,12 @@ TagManager:
   - Obstacle
   - Hook
   - Enemy
+  - HittingObject
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Enemy
   - Water
   - UI
   - Obstacle
