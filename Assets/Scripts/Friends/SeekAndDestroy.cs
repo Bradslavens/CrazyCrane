@@ -16,11 +16,9 @@ public class SeekAndDestroy : MonoBehaviour
     public float fireInterval = 1f;
     private float fireTimer;
 
-    public GameObject targetObject; // The object that this script will interact with
-
     public float movementSpeed = 1f; // The speed at which this game object will move towards the target
 
-    private bool shouldMove = true; // A flag to determine if the game object should continue moving
+    private FriendController friendController;
 
     private void Awake()
     {
@@ -40,33 +38,26 @@ public class SeekAndDestroy : MonoBehaviour
         {
             Debug.LogError("Could not find EnemyManager component on Enemy Manager object");
         }
+
+        InitializeProjectilePool();
     }
 
-    private void OnTriggerEnter(Collider other)
+    void Start()
     {
-        if (other.gameObject == targetObject) // Check if the triggered object is the target object
+        friendController = GetComponent<FriendController>();
+
+        if (friendController == null)
         {
-            // Stop moving
-            shouldMove = false;
-
-
-            // Initialize the projectile pool
-            InitializeProjectilePool();
+            Debug.LogError("FreindController component not found!");
         }
-    }
 
-    private void RotateTowardsTarget()
-    {
-        Vector3 direction = targetObject.transform.position - transform.position;
-        direction.y = 0;  // Keep the rotation on the Y-axis only
-        Quaternion rotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Slerp(transform.rotation, rotation, 1);
     }
 
     private void InitializeProjectilePool()
     {
         for (int i = 0; i < projectilePoolSize; i++)
         {
+            Debug.Log("pool");
             GameObject projectile = Instantiate(projectilePrefab);
             projectile.SetActive(false);
             projectilePool.Add(projectile);
@@ -74,15 +65,18 @@ public class SeekAndDestroy : MonoBehaviour
     }
 
     private void Update()
-    {
 
-        // Example usage: Find closest enemy and rotate towards it
-        GameObject closestEnemy = FindClosestEnemy();
-        if (closestEnemy != null)
+    {
+        if (friendController.currentState == FriendController.CharacterState.Shooting)
         {
-            RotateTowardsEnemy(closestEnemy);
-            FireAtEnemy();
+            GameObject closestEnemy = FindClosestEnemy();
+            if (closestEnemy != null)
+            {
+                RotateTowardsEnemy(closestEnemy);
+                FireAtEnemy();
+            }
         }
+
     }
 
 
