@@ -373,11 +373,11 @@ PrefabInstance:
       addedObject: {fileID: 20789494}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3256955425275935004, guid: 7564bea8fa7550442946fc4e42ab89b6, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 394739407}
+      insertIndex: 2
+      addedObject: {fileID: 394739411}
     - targetCorrespondingSourceObject: {fileID: 3256955425275935004, guid: 7564bea8fa7550442946fc4e42ab89b6, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 394739408}
+      addedObject: {fileID: 394739407}
   m_SourcePrefab: {fileID: 100100000, guid: 7564bea8fa7550442946fc4e42ab89b6, type: 3}
 --- !u!1 &212276435
 GameObject:
@@ -497,7 +497,7 @@ MonoBehaviour:
   speed: 6
   shootingRange: 2
   state: 0
---- !u!114 &394739408
+--- !u!114 &394739411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -506,9 +506,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 394739398}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0fba1af584d537f43af9dcadbfe8bc77, type: 3}
+  m_Script: {fileID: 11500000, guid: 1859e5b165075a34e954003ad19e2aa7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemySpawner: {fileID: 508551587}
+  projectilePrefab: {fileID: 5266386085422068221, guid: 1409f9bbc0964ee459f78fa1cf09308e, type: 3}
+  muzzle: {fileID: 20789494}
+  projectilePoolSize: 10
+  fireInterval: 1
+  targetObject: {fileID: 1562416564}
+  movementSpeed: 1
 --- !u!1 &413934839
 GameObject:
   m_ObjectHideFlags: 0

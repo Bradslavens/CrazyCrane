@@ -22,12 +22,8 @@ public class SeekAndDestroy : MonoBehaviour
 
     private bool shouldMove = true; // A flag to determine if the game object should continue moving
 
-    private Animator animator; // Animator component
-
     private void Awake()
     {
-        // Get the Animator component
-        animator = GetComponent<Animator>();
 
         // Find the Enemy Manager GameObject
         GameObject enemyManagerObject = GameObject.Find("EnemyManager");
@@ -53,8 +49,6 @@ public class SeekAndDestroy : MonoBehaviour
             // Stop moving
             shouldMove = false;
 
-            // Start shooting animation
-            animator.SetTrigger("Shooting");
 
             // Initialize the projectile pool
             InitializeProjectilePool();
@@ -81,14 +75,6 @@ public class SeekAndDestroy : MonoBehaviour
 
     private void Update()
     {
-        if (shouldMove)
-        {
-            // Move towards the target
-            MoveTowardsTarget();
-
-            // Always face the target
-            RotateTowardsTarget();
-        }
 
         // Example usage: Find closest enemy and rotate towards it
         GameObject closestEnemy = FindClosestEnemy();
@@ -99,11 +85,6 @@ public class SeekAndDestroy : MonoBehaviour
         }
     }
 
-    private void MoveTowardsTarget()
-    {
-        float step = movementSpeed * Time.deltaTime;
-        transform.position = Vector3.MoveTowards(transform.position, targetObject.transform.position, step);
-    }
 
     private GameObject FindClosestEnemy()
     {
