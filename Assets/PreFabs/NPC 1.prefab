@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 5611248292573859559}
   - component: {fileID: 5611248292573859558}
   - component: {fileID: 2146752830970410958}
+  - component: {fileID: -2968833496512554981}
   m_Layer: 3
   m_Name: NPC 1
   m_TagString: Enemy
@@ -150,7 +151,7 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
@@ -158,6 +159,19 @@ CapsuleCollider:
   m_Height: 2.4527364
   m_Direction: 1
   m_Center: {x: 0, y: 1.1750872, z: 0.77957916}
+--- !u!114 &-2968833496512554981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5611248292573859557}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0b602d9497ac284d9c9c0b38070d447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 20
 --- !u!1001 &2146752829949455388
 PrefabInstance:
   m_ObjectHideFlags: 0
